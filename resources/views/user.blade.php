@@ -12,13 +12,17 @@
                     <th>Username</th>
                     <th>Nama</th>
                     <th>ID Level Pengguna</th>
+                    <th>Aksi</th>
                 </tr>
+                @foreach ($data as $d)
                 <tr>
-                    <th>{{$data->user_id}}</th>
-                    <th>{{$data->username}}</th>
-                    <th>{{$data->nama}}</th>
-                    <th>{{$data->level_id}}</th>
+                    <th>{{$d->user_id}}</th>
+                    <th>{{$d->username}}</th>
+                    <th>{{$d->nama}}</th>
+                    <th>{{$d->level_id}}</th>
+                    <td><a href="{{route('/user/ubah', $d->user_id)}}">Ubah</a> | <a href={{route('/user/hapus',$d->user_id)}}>Hapus</a></td>
                 </tr>
+                @endforeach
             </tr>
         </table>
         
